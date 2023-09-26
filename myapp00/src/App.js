@@ -1,24 +1,34 @@
 import './App.css';
-import MySelf from "./MySelf";
-import jokesData from "./jokesData";
+import React, { useState } from "react"
 
-function App() {
-  console.log(jokesData)
-  const colors = [
-    <h4>Orange</h4>,
-    <h4>Red</h4>,
-    <h4>Green</h4>,
-    <h4>Magenta</h4>,
-    <h4>Black</h4>,
-    <h4>Blue</h4>,
-    <h4>Brown</h4>
-  ]
+export default function App (){
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+  function handleChange(e){
+    const newdata = {...data};
+    newdata[e.target.id] = e.target.value;
+    setData(newdata)
+    console.log(newdata)
+  }
+
+  // function handleClick(){
+  //   console.log(data.name, data.email,data.password);
+  // }
+
   return (
-    <div className="App">
-      {colors}
-      <MySelf />
-    </div>
-  );
+    <>
+    <h1>Hello Hardy</h1>
+    <form>
+      <input type="text" name="name" onChange={(e)=>handleChange(e)} value={data.name} id="name"/>
+      <input type="email" name="email" onChange={(e)=>handleChange(e)} value={data.email} id="email"/>
+      <input type="password" name="password" onChange={(e)=>handleChange(e)} value={data.password} id="password"/>
+      <button type="submit">submit</button>
+    </form>
+    </>
+  )
 }
 
-export default App;
+
