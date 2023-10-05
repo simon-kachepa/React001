@@ -3,20 +3,25 @@ import { DevTool } from "@hookform/devtools"
 
 export default function SignUp(){
     const form = useForm();
-    const { register, control } = form;
+    const { register, control, handleSubmit } = form;
     // const {name, ref, onChange, onBlur} = register("username");
+
+    const onSubmit = (data) =>{
+        console.log("Form submitted", data);
+    }
 
     return (
         <div>
-            <form>
-
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <label htmlFor="name">Name</label>
                 <input 
                     type="text" 
                     id="name" 
                     placeholder="Username" 
                     // name={name} ref={"ref"} onChange = {onChange} onBlur={onBlur}
-                    {...register("username")}
+                    {...register("username",
+                        {required: "Name is required",}
+                    )}
                 />
                 <br /><br />
 
@@ -26,7 +31,9 @@ export default function SignUp(){
                     id="email" 
                     placeholder="abc@gmail.com" 
                     // name="email"
-                    {...register("email")}
+                    {...register("email", {
+                        required: "Email is required",
+                    })}
                 />
                 <br /><br />
 
@@ -36,7 +43,9 @@ export default function SignUp(){
                     id="password" 
                     placeholder="**********" 
                     // name="password"  
-                    {...register("password")}
+                    {...register("password", {
+                        required: "Password is required",
+                    })}
                 />
                 <br /><br />
 
