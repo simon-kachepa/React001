@@ -3,7 +3,8 @@ import { DevTool } from "@hookform/devtools"
 
 export default function SignUp(){
     const form = useForm();
-    const { register, control, handleSubmit } = form;
+    const { register, control, handleSubmit, formState } = form;
+    const { errors } = formState;
     // const {name, ref, onChange, onBlur} = register("username");
 
     const onSubmit = (data) =>{
@@ -13,19 +14,24 @@ export default function SignUp(){
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Name: </label>
                 <input 
                     type="text" 
                     id="name" 
                     placeholder="Username" 
                     // name={name} ref={"ref"} onChange = {onChange} onBlur={onBlur}
-                    {...register("username",
-                        {required: "Name is required",}
-                    )}
+                    {...register("username", {
+                        required: 
+                        {
+                            value: true,
+                            message: "Name is required"
+                        }
+                        })}
                 />
+                <p>{errors.username?.message}</p>
                 <br /><br />
 
-                <label htmlFor="name">Email</label>
+                <label htmlFor="name">Email: </label>
                 <input 
                     type="email" 
                     id="email" 
@@ -38,18 +44,24 @@ export default function SignUp(){
                         },
                     })}
                 />
+                <p>{errors.email?.message}</p>
                 <br /><br />
 
-                <label htmlFor="name">Password</label>
+                <label htmlFor="name">Password: </label>
                 <input 
                     type="password" 
                     id="password" 
                     placeholder="**********" 
                     // name="password"  
                     {...register("password", {
-                        required: "Password is required",
-                    })}
+                        required: 
+                        {
+                            value: true,
+                            message: "Password required"
+                        }
+                        })}
                 />
+                <p>{errors.password?.message}</p>
                 <br /><br />
 
                 <button type="submit" name="submit" id="submit">submit</button>
