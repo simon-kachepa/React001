@@ -42,6 +42,18 @@ export default function SignUp(){
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                             message: "Invalid email address"
                         },
+                        validate: {
+                            notAdmin: (fieldValue)=>{
+                                return (
+                                    fieldValue !== "admin@example.com" || "Enter a different email"
+                                );
+                            },
+                            notBlacklisted: (fieldValue)=>{
+                                return (
+                                    !fieldValue.endsWith("baddomain.com") || "This domain is not supported"
+                                );
+                            },
+                        },
                     })}
                 />
                 <p>{errors.email?.message}</p>
