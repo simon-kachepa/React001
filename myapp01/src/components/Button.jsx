@@ -3,7 +3,7 @@ console.log(props)
 
     return (
         <div>
-            <button className="btn" onClick={props.handleClick}>{props.btnTxt}</button>
+            <button className="btn" onClick={props.clickFunction}>{props.btnTxt}</button>
         </div>
     )
 }
