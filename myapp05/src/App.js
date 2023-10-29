@@ -1,19 +1,12 @@
 import './App.css';
-import React, {useState} from "react";
+import React from "react"
+import Form from "./components/Form"
 
 function App() {
-  const [isImportant, setIsImportant] = useState("No")
-
-  function handleClick(){
-    setIsImportant("Yes")
-  }
 
   return (
-    <div className="App">
-      <h1>Is state important to know?</h1>
-      <div className="container" onClick={handleClick}>
-        <h1 className="truethness">{isImportant}</h1>
-      </div>
+    <div className="App" >
+      <Form />
     </div>
   );
 }
