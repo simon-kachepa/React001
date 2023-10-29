@@ -45,6 +45,43 @@
   margin: 0 auto;
 }
 
-.truethness{
+/* .truethness{
   padding-top: 14px;;
+} */
+button{
+  cursor: pointer;
 }
+
+.card {
+  width: 275px;
+  height: 300px;
+  background: #1b072e;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+.image {
+  border-radius: 50%;
+  width: 80px;
+}
+.icon {
+  width: 30px;
+  margin-top: 18px;;
+}
+
+.card h2 {
+  color: white;
+}
+
+.card p {
+  color:white;
+}
+
+.box-div{
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 4px;
+  border-radius: 5px;
+}
+
