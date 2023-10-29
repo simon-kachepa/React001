@@ -4,7 +4,7 @@ export default [
         punchline: "Put them out with your pantyhose."
     },
     {
-        setup: "WWhy don’t chickens wear underwear?",
+        setup: "Why don’t chickens wear underwear?",
         punchline: "Because their pecker is on their face"
     },
     {
